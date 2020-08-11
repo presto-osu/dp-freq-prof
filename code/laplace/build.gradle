@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+}
+
+group 'presto'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':common')
+    compile project(':integer-lp')
+    
+    compile group: 'net.openhft', name: 'chronicle-map', version: '3.19.4'
+    compile group: 'net.openhft', name: 'chronicle-core', version: '2.19.5'
+    compile group: 'net.openhft', name: 'chronicle-values', version: '2.19.0'
+    compile group: 'org.slf4j', name: 'slf4j-nop', version: '1.7.30'
+}

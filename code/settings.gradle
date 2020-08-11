@@ -1,0 +1,10 @@
+rootProject.name = 'code'
+include 'randomized-response'
+include 'common'
+include 'gator'
+include 'stats'
+include 'laplace'
+include 'sanity-check'
+include 'instrumentation'
+include 'integer-lp'
+

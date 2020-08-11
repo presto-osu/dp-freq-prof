@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version "${ShadowJarVersion}"
+}
+
+group 'presto'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':common')
+    compile project(':laplace')
+}
