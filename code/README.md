@@ -9,7 +9,7 @@ This directory contains the code for randomization described in the paper. Below
 ## Prerequisites
 
 - Java 1.8+
-- Matlab: Please follow the instructions on [Matlab's website](https://www.mathworks.com/products/get-matlab.html) for installation and then export `matlab` to `PATH` of executables.
+- MATLAB: Please follow the instructions on [MATLAB's website](https://www.mathworks.com/products/get-matlab.html) for installation and then export `matlab` to `PATH` of executables.
 
 <!-- ## Install Google OR-Tools
 
