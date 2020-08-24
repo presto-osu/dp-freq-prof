@@ -1,4 +1,8 @@
-This release includes the [code](code) and the [dataset](https://github.com/presto-osu/dp-freq-prof/releases/download/dataset/dataset.tar.gz) described in the following [paper](http://web.cse.ohio-state.edu/presto/pubs/oopsla20.pdf):
+This release includes the [code](code) and the [dataset](https://github.com/presto-osu/dp-freq-prof/releases/download/dataset/dataset.tar.gz) described in
+paper "Differentially-Private SoftwareFrequency Profiling Under Linear Constraints" that is conditionally accepted to OOPSLA'20.
+
+<!--
+the following [paper](http://web.cse.ohio-state.edu/presto/pubs/oopsla20.pdf):
 
 ```
 @inproceedings{zhang-oopsla20,
@@ -8,6 +12,7 @@ This release includes the [code](code) and the [dataset](https://github.com/pres
     year = {2020},
 }
 ```
+-->
 
 Follow the instructions [here](code) to reproduce the results in the paper.
 
