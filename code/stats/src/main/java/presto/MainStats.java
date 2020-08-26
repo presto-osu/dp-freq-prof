@@ -119,26 +119,6 @@ public class MainStats extends BaseMain {
       csvDir, app, epsilon, (int) threshold, trial_num, after);
   }
 
-  //  Map<String, Double> postProcessing(Map<String, Double> servProfile) {
-  //    Map<String, Double> adjProfile = Maps.newHashMap();
-  //
-  //    long totalFreq = realProfile.getTotalFreq();
-  //    //    System.out.println("total frequency of servProfile: " + totalFreq);
-  //    if (totalFreq != 5 * funcs.size() * 1000) {
-  //      throw new RuntimeException("BAD in PostProcessing!!!!!!!!!");
-  //    }
-  //    double z = Math.exp(epsilon / (threshold * 2));
-  //    for (String mmm : funcs) {
-  //      double x = servProfile.get(mmm);
-  //      double estimate = Math.round(((z + 1) * x - totalFreq) / (z - 1));
-  //      //      System.out.println("serv: " + x + ", adj: " + estimate);
-  //      //      if (estimate < 0) estimate = 0;
-  //      //      if (estimate > totalFreq) estimate = totalFreq;
-  //      adjProfile.put(mmm, estimate);
-  //    }
-  //    return adjProfile;
-  //  }
-
   @Override
   void stats() {
     super.stats();
@@ -301,7 +281,7 @@ public class MainStats extends BaseMain {
   void computeAccuracy(int trial_num, Map<String, Double> adjProfile) {
     all_total_freq_est[trial_num] = adjProfile.values().stream().reduce(Double::sum).get();
     all_total_freq_est_diff[trial_num] =
-        Math.abs(adjProfile.values().stream().reduce(Double::sum).get() - 1000 * 5 * funcs.size());
+        Math.abs(adjProfile.values().stream().reduce(Double::sum).get() - profiles.size() * 5 * funcs.size());
     for (int idx = 0; idx < 5; idx += 1) {
       double tau = idx * 0.25;
       //      Set<String> trueTopTau =

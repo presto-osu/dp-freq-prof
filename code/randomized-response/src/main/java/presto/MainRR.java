@@ -50,7 +50,7 @@ public abstract class MainRR extends BaseMain {
       servProfile = readProfile(intermediateResFile(trial_num) + "-after-randomization.csv");
       long totalFreq = realProfile.getTotalFreq();
       // System.out.println("total frequency of servProfile: " + totalFreq);
-      if (totalFreq != 5 * funcs.size() * 1000) {
+      if (totalFreq != 5 * funcs.size() * profiles.size()) {
         throw new RuntimeException("BAD in PostProcessing!!!!!!!!!");
       }
 

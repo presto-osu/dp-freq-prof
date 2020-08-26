@@ -30,9 +30,11 @@ Download and extract [dataset.tar.gz](https://github.com/presto-osu/dp-freq-prof
 
 ```bash
 $ cd code
-$ bash runall_experiments_comparison.sh # comparison of the two randomizations (Sec. 7.1)
+$ bash runall_experiments_comparison.sh # comparison of the two randomizers (Sec. 7.1)
 $ bash runall_rr_experiments.sh # randomized response (Sec. 7.2 & 7.3)
 $ bash runall_lap_experiments.sh # Laplace mechanism (Sec. 7.2 & 7.3)
+$ export PARTITION=500  && bash runall_experiments_comparison.sh # high-similarity (Sec. 7.5)
+$ export PARTITION=-500 && bash runall_experiments_comparison.sh # low-similarity (Sec. 7.5)
 ```
 
 The log files are stored in folder `log`.

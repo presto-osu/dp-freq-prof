@@ -16,7 +16,7 @@ import java.util.function.IntConsumer;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-abstract class BaseMain {
+abstract class BaseMain extends ProfilePartition {
   String dir;
   String app;
   String funcListPath;
@@ -44,6 +44,27 @@ abstract class BaseMain {
   BaseMain(String[] args) {
     parseParams(args);
     init();
+    String partition = System.getenv("PARTITION");
+    if (partition != null && Integer.parseInt(partition) != 0) {
+      int size = Integer.parseInt(partition);
+      System.out.println("Partitioning... Size: " + size);
+
+      Set<Profile> highSimCluster = createCluster(profiles, funcs, true, Math.abs(size));
+      Set<Profile> lowSimCluster = createCluster(profiles, funcs, false, Math.abs(size));
+
+      System.out.println("high_sim_size\t" + highSimCluster.size());
+      System.out.println("low_sim_size\t" + lowSimCluster.size());
+      System.out.println("high_sim_avg_dist\t" + averageClusterDistance(highSimCluster, funcs));
+      System.out.println("low_sim_avg_dist\t" + averageClusterDistance(lowSimCluster, funcs));
+
+      long numProfInHi = profiles.parallelStream().filter(p -> highSimCluster.contains(p)).count();
+      long numProfInLo = profiles.parallelStream().filter(p -> lowSimCluster.contains(p)).count();
+      System.out.println("num_prof_in_high_sim\t" + numProfInHi);
+      System.out.println("num_prof_in_low_sim\t" + numProfInLo);
+
+      profiles = size < 0 ? lowSimCluster : highSimCluster;
+      realProfile = aggregate(profiles.parallelStream());
+    }
   }
 
   void parseParams(String[] a) {

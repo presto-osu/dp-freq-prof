@@ -32,7 +32,7 @@ run_phd() {
   do
 
     csvdir=../intermediate-results/csv-lap-hybrid-raw-tau-2pow$v-simplegraph-h$h
-    mkdir $csvdir
+    mkdir -p $csvdir
 
     for alpha in 0 1
     do
