@@ -1,7 +1,7 @@
 This directory contains the code for randomization described in the paper. Below are the folders that contain essential code and results:
 
 - `common` and `integer-lp` contain the common utility classes and the Matlab code
-- `le-pairs-csv` contains the `<=` pairs using the static analysis from [our CC'20 paper](http://web.cse.ohio-state.edu/presto/pubs/cc20.pdf)
+- `le-pairs-csv` contains the `<=` pairs using the static analysis from our CC'20 [paper](http://web.cse.ohio-state.edu/presto/pubs/cc20.pdf)
 - `laplace` contains the Laplace-mechanism-based randomization described in the paper
 - `randomized-response` contains the code for the randomized-response-based randomization
 - `stats` includes code for printing statistics
